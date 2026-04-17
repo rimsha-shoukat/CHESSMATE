@@ -1,9 +1,9 @@
 {
   "name": "chessmate",
   "version": "1.0.0",
-  "description": "",
+  "description": "A classic chess experience with online matchmaking, friend duels, and AI bot battles — all from one sleek board.",
   "license": "ISC",
-  "author": "",
+  "author": "rimsha.devs",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
