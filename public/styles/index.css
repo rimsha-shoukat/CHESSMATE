@@ -1,0 +1,95 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --text-color: #f0c040;
+}
+
+html {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: url(/images/patternBg.jpg) no-repeat center center / cover fixed;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+    gap: 30px;
+    padding: 10px;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body section:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body section:first-child>h4:first-of-type {
+    color: var(--text-color);
+    margin-top: 16px;
+    letter-spacing: 3px;
+}
+
+body section:first-child h2 {
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+body section:first-child h2 span {
+    color: var(--text-color);
+}
+
+body section:first-child>h4:last-of-type {
+    color: rgb(194, 194, 194);
+    font-weight: light;
+}
+
+body section:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+body section:last-child>h4 {
+    color: rgb(194, 194, 194);
+    letter-spacing: 3px;
+}
+
+body section:last-child>div span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+body section:last-child>div {
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    background-color: rgba(63, 63, 63, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgb(80, 78, 78);
+}
+
+body section:last-child>div:hover {
+    border: 1px solid var(--text-color);
+    transition: all 300ms ease-in-out;
+}
