@@ -9,4 +9,9 @@ app.get("/", (req, res) => {
     res.render("index");
 });
 
+app.get("/game/:type", (req, res) => {
+    const type = req.params.type;
+    res.render("game", { type });
+})
+
 app.listen(3000);
