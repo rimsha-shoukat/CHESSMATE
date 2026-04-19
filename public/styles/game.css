@@ -14,6 +14,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px;
+    padding-bottom: 50px;
 }
 
 body nav {
@@ -66,10 +67,54 @@ body section div {
 
 body section div button {
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background-color: rgb(71, 71, 71);
     color: whitesmoke;
     font-weight: bold;
+}
+
+.turn {
+    background-color: rgb(2, 79, 2);
+}
+
+#chessboard {
+    display: grid;
+    grid-template-columns: repeat(8, 60px);
+    grid-template-rows: repeat(8, 60px);
+    border: 5px solid #333;
+    border-radius: 10px;
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.square {
+    width: 60px;
+    height: 60px;
+}
+
+.white {
+    background-color: #f0d9b5;
+}
+
+.black {
+    background-color: #b58863;
+}
+
+@media (max-width: 620px) {
+    #chessboard {
+        display: grid;
+        grid-template-columns: repeat(8, 30px);
+        grid-template-rows: repeat(8, 30px);
+        border: 5px solid #333;
+        border-radius: 10px;
+        width: fit-content;
+        margin: 20px auto;
+    }
+
+    .square {
+        width: 30px;
+        height: 30px;
+    }
 }
