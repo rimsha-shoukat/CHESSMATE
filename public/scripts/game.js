@@ -17,7 +17,7 @@ function renderBoard() {
                 const pieceElement = document.createElement('span');
                 pieceElement.classList.add("piece", square.color == 'w' ? "white" : "black");
                 pieceElement.innerText = getPieceUnicode(square);
-                pieceElement.draggable = playerpiecesRole == square.color;
+                pieceElement.draggable = playerRole == square.color;
                 squareElement.appendChild(pieceElement);
             }
             boardElement.appendChild(squareElement);
