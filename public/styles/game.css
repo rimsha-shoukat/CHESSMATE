@@ -15,6 +15,8 @@ body {
     justify-content: center;
     gap: 20px;
     padding-bottom: 50px;
+    padding: 0;
+    margin: 0;
 }
 
 body nav {
@@ -81,40 +83,71 @@ body section div button {
 
 #chessboard {
     display: grid;
-    grid-template-columns: repeat(8, 60px);
-    grid-template-rows: repeat(8, 60px);
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 0;
     border: 5px solid #333;
+    width: 600px;
+    height: 600px;
     border-radius: 10px;
-    width: fit-content;
     margin: 20px auto;
 }
 
 .square {
-    width: 60px;
-    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
 }
 
-.white {
+.light {
     background-color: #f0d9b5;
 }
 
-.black {
+.dark {
     background-color: #b58863;
 }
 
-@media (max-width: 620px) {
+.piece {
+    font-size: 45px;
+    padding: 0;
+    cursor: pointer;
+    margin: 0;
+}
+
+.draggable {
+    cursor: grab;
+}
+
+.black {
+    color: #0f0f0f;
+}
+
+.white {
+    color: white;
+    filter: drop-shadow(0 0 2px rgb(0 0 0 1));
+}
+
+@media (max-width: 700px) {
     #chessboard {
-        display: grid;
-        grid-template-columns: repeat(8, 30px);
-        grid-template-rows: repeat(8, 30px);
-        border: 5px solid #333;
-        border-radius: 10px;
-        width: fit-content;
-        margin: 20px auto;
+        width: 400px;
+        height: 400px;
     }
 
-    .square {
-        width: 30px;
-        height: 30px;
+    .piece {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 470px) {
+    #chessboard {
+        width: 300px;
+        height: 300px;
+    }
+
+    .piece {
+        font-size: 25px;
     }
 }

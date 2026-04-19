@@ -1,16 +1,37 @@
-const board = document.getElementById('chessboard');
+const chess = new Chess();
+const boardElement = document.getElementById('chessboard');
+let playerRole = "w";
 
-for (let row = 0; row < 8; row++) {
-    for (let col = 0; col < 8; col++) {
-        const square = document.createElement('div');
-        square.classList.add('square');
+function renderBoard() {
+    const board = chess.board();
+    boardElement.innerHTML = "";
+    board.forEach((row, rowIndex) => {
+        row.forEach((square, squareIndex) => {
+            const squareElement = document.createElement('div');
+            squareElement.classList.add('square', (rowIndex + squareIndex) % 2 === 0 ? "light" : "dark");
 
-        if ((row + col) % 2 === 0) {
-            square.classList.add('white');
-        } else {
-            square.classList.add('black');
-        }
+            squareElement.dataset.row = rowIndex;
+            squareElement.dataset.col = squareIndex;
 
-        board.appendChild(square);
-    }
+            if (square) {
+                const pieceElement = document.createElement('span');
+                pieceElement.classList.add("piece", square.color == 'w' ? "white" : "black");
+                pieceElement.innerText = getPieceUnicode(square);
+                pieceElement.draggable = playerpiecesRole == square.color;
+                squareElement.appendChild(pieceElement);
+            }
+            boardElement.appendChild(squareElement);
+        })
+    })
+}
+
+renderBoard();
+
+
+function getPieceUnicode(square) {
+    const pieceSymbols = {
+        'r': '♜', 'n': '♞', 'b': '♝', 'q': '♛', 'k': '♚', 'p': '♟'
+    };
+
+    return pieceSymbols[square.type] || "";
 }
