@@ -1,6 +1,18 @@
 const chess = new Chess();
 const boardElement = document.getElementById('chessboard');
 let playerRole = "w";
+let profile1 = document.querySelector(".profile1");
+let profile2 = document.querySelector(".profile2");
+let you = document.querySelector(".you");
+let player = document.querySelector(".player");
+
+if (playerRole == "w") {
+    profile2.classList.remove("turn");
+    profile1.classList.add("turn");
+} else {
+    profile1.classList.remove("turn");
+    profile2.classList.add("turn");
+}
 
 function renderBoard() {
     const board = chess.board();
