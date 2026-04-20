@@ -6,6 +6,9 @@ let profile2 = document.querySelector(".profile2");
 let you = document.querySelector(".you");
 let player = document.querySelector(".player");
 
+let dragPiece = null;
+let sourceSquare = null;
+
 if (playerRole == "w") {
     profile2.classList.remove("turn");
     profile1.classList.add("turn");
@@ -31,14 +34,34 @@ function renderBoard() {
                 pieceElement.innerText = getPieceUnicode(square);
                 pieceElement.draggable = playerRole == square.color;
                 squareElement.appendChild(pieceElement);
+                pieceElement.addEventListener("dragstart", (e) => {
+                    if (pieceElement.draggable) {
+                        dragPiece = pieceElement;
+                        sourceSquare = { row: rowIndex, col: squareIndex };
+                        e.dataTransfer.setData("text/plain", " ");
+                    }
+                });
             }
+
+            squareElement.addEventListener("dragover", (e) => { e.preventDefault(); });
+            squareElement.addEventListener("drop", (e) => {
+                e.preventDefault();
+                if (dragPiece) {
+                    const targetSquare = { row: parseInt(squareElement.dataset.row), col: parseInt(squareElement.dataset.col) };
+                    handleMove(sourceSquare, targetSquare);
+                }
+            });
+
             boardElement.appendChild(squareElement);
         })
-    })
+    });
 }
 
 renderBoard();
 
+function handleMove(sourceSquare, targetSquare) {
+    console.log("moved");
+}
 
 function getPieceUnicode(square) {
     const pieceSymbols = {
