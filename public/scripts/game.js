@@ -48,10 +48,31 @@ function renderBoard() {
                 e.preventDefault();
                 if (dragPiece) {
                     const targetSquare = { row: parseInt(squareElement.dataset.row), col: parseInt(squareElement.dataset.col) };
-                    handleMove(sourceSquare, targetSquare);
+                    const isValidMove = handleMove(sourceSquare, targetSquare);
+                    if (isValidMove) {
+                        const capturedPieceSymbol = getPieceUnicode({ type: isValidMove.captured });
+                        if (isValidMove.captured) {
+                            if (chess.turn() === 'b') {
+                                you.innerText += " " + capturedPieceSymbol;
+                            } else {
+                                player.innerText += " " + capturedPieceSymbol;
+                            }
+                        }
+                        playerRole = chess.turn();
+                        if (playerRole == "w") {
+                            profile2.classList.remove("turn");
+                            profile1.classList.add("turn");
+                        } else {
+                            profile1.classList.remove("turn");
+                            profile2.classList.add("turn");
+                        }
+                        checkGameOver();
+                    }
+                    renderBoard();
+                    dragPiece = null;
+                    sourceSquare = null;
                 }
             });
-
             boardElement.appendChild(squareElement);
         })
     });
@@ -59,14 +80,33 @@ function renderBoard() {
 
 renderBoard();
 
-function handleMove(sourceSquare, targetSquare) {
-    console.log("moved");
-}
-
 function getPieceUnicode(square) {
     const pieceSymbols = {
         'r': '♜', 'n': '♞', 'b': '♝', 'q': '♛', 'k': '♚', 'p': '♟'
     };
 
     return pieceSymbols[square.type] || "";
+}
+
+function handleMove(source, target) {
+    const move = {
+        from: `${String.fromCharCode(97 + source.col)}${8 - source.row}`,
+        to: `${String.fromCharCode(97 + target.col)}${8 - target.row}`,
+        promotion: "q"
+    };
+    const result = chess.move(move);
+    return result;
+}
+
+function checkGameOver() {
+    if (chess.in_checkmate()) {
+        if (chess.turn() === 'w') {
+            player.innerText += " - WINNER!";
+        } else {
+            you.innerText += " - WINNER!";
+        }
+        alert("Checkmate!");
+    } else if (chess.in_draw() || chess.in_stalemate()) {
+        alert("Game Over: Draw!");
+    }
 }
