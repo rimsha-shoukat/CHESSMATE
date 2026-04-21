@@ -33,7 +33,12 @@
     integrity="sha512-xRllwz2gdZciIB+AkEbeq+gVhX8VB8XsfqeFbUh+SzHlN96dEduwtTuVuc2u9EROlmW9+yhRlxjif66ORpsgVA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="/scripts/board.js"></script>
-<script src="/scripts/game.js"></script>
-<script src="/scripts/bot.js"></script>
-<script src="/scripts/socket.js"></script>
+<%if(type=="friend" ){ %>
+    <script src="/scripts/game.js"></script>
+    <%} else if(type=="bot" ){ %>
+        <script src="/scripts/bot.js"></script>
+        <%}else if (type=="online" ){%>
+            <script src="/scripts/socket.js"></script>
+            <%}%>
+
 </html>

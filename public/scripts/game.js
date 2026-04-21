@@ -12,14 +12,6 @@ function handleDrop(e) {
                 player.innerText += " " + capturedPieceSymbol;
             }
         }
-        playerRole = chess.turn();
-        if (playerRole == "w") {
-            profile2.classList.remove("turn");
-            profile1.classList.add("turn");
-        } else {
-            profile1.classList.remove("turn");
-            profile2.classList.add("turn");
-        }
         updateUI();
         checkGameOver();
     }

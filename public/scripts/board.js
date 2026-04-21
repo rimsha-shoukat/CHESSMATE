@@ -10,8 +10,8 @@ let dragPiece = null;
 let sourceSquare = null;
 
 function updateUI() {
-    const currentTurn = chess.turn();
-    if (currentTurn === "w") {
+    playerRole = chess.turn();
+    if (playerRole === "w") {
         profile2.classList.remove("turn");
         profile1.classList.add("turn");
     } else {
