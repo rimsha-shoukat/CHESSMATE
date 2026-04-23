@@ -19,19 +19,22 @@
         <div>
             <button class="profile2">B</button>
             <h3 class="player">
-                <%=type%>
+                Player2
             </h3>
         </div>
         <section id="chessboard"></section>
         <div>
             <button class="profile1">Y</button>
-            <h3 class="you">You</h3>
+            <h3 class="you">Player1</h3>
         </div>
     </section>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/chess.js/0.10.3/chess.min.js"
     integrity="sha512-xRllwz2gdZciIB+AkEbeq+gVhX8VB8XsfqeFbUh+SzHlN96dEduwtTuVuc2u9EROlmW9+yhRlxjif66ORpsgVA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.socket.io/4.8.3/socket.io.min.js"
+    integrity="sha384-kzavj5fiMwLKzzD1f8S7TeoVIEi7uKHvbTA3ueZkrzYq75pNQUiUi6Dy98Q3fxb0"
+    crossorigin="anonymous"></script>
 <script src="/scripts/board.js"></script>
 <% if(type=="friend" ) { %>
     <script src="/scripts/game.js"></script>

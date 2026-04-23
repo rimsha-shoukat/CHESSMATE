@@ -3,7 +3,6 @@ stockfish.postMessage("uci");
 
 stockfish.onmessage = function (e) {
     if (!e.data.startsWith("bestmove")) return;
-    console.log(e.data)
     const best = e.data.split(" ")[1];
     const moved = chess.move({ from: best.slice(0, 2), to: best.slice(2, 4), promotion: "q" });
     if (!moved) return;
