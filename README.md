@@ -4,6 +4,9 @@
 
 ---
 
+### [click to view live](https://chessmate-six.vercel.app/)
+>  "Play Online" is currently disabled as Vercel does not support the WebSockets required for live matchmaking.
+
 ## Features
 
 - **Play with Friend** — take turns on the same device
