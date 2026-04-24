@@ -1,6 +1,6 @@
 # ChessMate ♟️
 
-> A classic chess experience with online matchmaking, friend duels, and AI bot battles — all from one sleek board.
+A classic chess experience with online matchmaking, friend duels, and AI bot battles — all from one sleek board.
 
 ---
 
